@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Awesome Blog Article",
+    "author": "Incredible Author",
+    "modified": "29/05/2018",
+    "content": "content.md"
+  },
+  {
+    "title": "Not so Awesome Article",
+    "author": "N00b Author",
+    "modified": "12/05/2018",
+    "content": "content.md"
+  }
+]

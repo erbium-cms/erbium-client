@@ -1,0 +1,23 @@
+// install the following packages:
+// yarn add --dev eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
+
+{
+  "extends": ["standard", "standard-react", "prettier", "prettier/react"],
+  "plugins": ["prettier"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
+}
