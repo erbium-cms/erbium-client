@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import showdown from 'showdown'
 import prettify from 'showdown-prettify' // eslint-disable-line no-unused-vars
@@ -33,4 +34,13 @@ BlogEntriesContainer.propTypes = {
   blogEntries: PropTypes.array.isRequired
 }
 
-export default BlogEntriesContainer
+const mapStateToProps = state => {
+  return {
+    blogEntries: state.blogEntries
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(BlogEntriesContainer)
