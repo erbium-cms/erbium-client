@@ -1,9 +1,9 @@
 import { getBlogEntries } from './blog-entries.service'
 
-export const receiveBlogEntries = items => {
+export const receiveBlogEntries = entries => {
   return {
     type: 'RECEIVE_BLOG_ENTRIES',
-    items
+    entries
   }
 }
 

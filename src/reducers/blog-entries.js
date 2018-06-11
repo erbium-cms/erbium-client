@@ -1,7 +1,7 @@
 const blogEntries = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_BLOG_ENTRIES':
-      return action.items
+      return action.entries
     default:
       return state
   }
