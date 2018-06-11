@@ -12,13 +12,13 @@ const BlogEntryAuthorStyle = {
   float: 'right'
 }
 
-const BlogEntry = ({ title, modified, author, children }) => (
+const BlogEntry = ({ title, modified, author, content, renderContent }) => (
   <Container text style={BlogEntryContainerStyle}>
     <Header as="h2" content={title} />
     <p>
       <small>{modified}</small>
     </p>
-    {children}
+    {renderContent(content)}
     <p style={BlogEntryAuthorStyle}>
       <small>{author}</small>
     </p>
@@ -29,7 +29,8 @@ BlogEntry.propTypes = {
   title: PropTypes.string.isRequired,
   modified: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  children: PropTypes.node
+  content: PropTypes.string.isRequired,
+  renderContent: PropTypes.func.isRequired
 }
 
 export default BlogEntry

@@ -2,33 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import showdown from 'showdown'
-import prettify from 'showdown-prettify' // eslint-disable-line no-unused-vars
-
 import BlogEntry from './blog-entry'
+import BlogEntryContent from './blog-entry-content'
 
-const BlogEntriesContainer = ({ blogEntries }) => {
-  let converter = new showdown.Converter({ extensions: ['prettify'] })
-
-  return (
-    <div>
-      {blogEntries.map((blogEntry, index) => (
-        <BlogEntry
-          key={index}
-          title={blogEntry.title}
-          modified={blogEntry.modified}
-          author={blogEntry.author}
-        >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: converter.makeHtml(blogEntry.content)
-            }}
-          />
-        </BlogEntry>
-      ))}
-    </div>
-  )
-}
+const BlogEntriesContainer = ({ blogEntries }) => (
+  <div>
+    {blogEntries.map((blogEntry, index) => (
+      <BlogEntry
+        key={index}
+        title={blogEntry.title}
+        modified={blogEntry.modified}
+        author={blogEntry.author}
+        content={blogEntry.content}
+        renderContent={BlogEntryContent}
+      />
+    ))}
+  </div>
+)
 
 BlogEntriesContainer.propTypes = {
   blogEntries: PropTypes.array.isRequired
