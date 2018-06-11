@@ -10,6 +10,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/logOnly'
 import App from './app'
 
 import erbiumApp from './reducers'
+import { loadConfiguration } from './actions/configuration'
 import { fetchBlogEntries } from './actions/blog-entries'
 
 const store = createStore(
@@ -17,6 +18,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunkMiddleware))
 )
 
+store.dispatch(loadConfiguration())
 store.dispatch(fetchBlogEntries())
 
 ReactDOM.render(

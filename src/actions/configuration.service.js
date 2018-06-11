@@ -1,4 +1,4 @@
-export function get() {
+export function load() {
   return new Promise((resolve, reject) => {
     window
       .fetch('./configuration.json')

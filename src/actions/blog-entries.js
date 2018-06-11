@@ -1,8 +1,9 @@
+import { RECEIVE_BLOG_ENTRIES } from '../types'
 import { getBlogEntries } from './blog-entries.service'
 
 export const receiveBlogEntries = entries => {
   return {
-    type: 'RECEIVE_BLOG_ENTRIES',
+    type: RECEIVE_BLOG_ENTRIES,
     entries
   }
 }

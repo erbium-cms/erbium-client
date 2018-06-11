@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import { Header, Container } from 'semantic-ui-react'
 
@@ -27,4 +28,13 @@ CompanyHeader.propTypes = {
   }).isRequired
 }
 
-export default CompanyHeader
+const mapStateToProps = state => {
+  return {
+    erbiumConfig: state.configuration
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(CompanyHeader)
