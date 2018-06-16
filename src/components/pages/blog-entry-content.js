@@ -14,9 +14,9 @@ const BlogEntryContentStyle = {
   overflow: 'hidden'
 }
 
-const BlogEntryContent = content => (
+const BlogEntryContent = (content, fixed) => (
   <div
-    style={BlogEntryContentStyle}
+    style={fixed ? BlogEntryContentStyle : {}}
     dangerouslySetInnerHTML={{
       __html: converter.makeHtml(content)
     }}

@@ -5,23 +5,25 @@ import { connect } from 'react-redux'
 import BlogEntry from './blog-entry'
 import BlogEntryContent from './blog-entry-content'
 
-const BlogEntriesContainer = ({ blogEntries }) => (
-  <div>
-    {blogEntries.map((blogEntry, index) => (
+const BlogPage = ({ match, blogEntries }) => {
+  const blogEntry = blogEntries[match.params.id]
+
+  return (
+    <div>
       <BlogEntry
-        key={index}
-        id={index}
+        id={match.params.id}
         title={blogEntry.title}
         modified={blogEntry.modified}
         author={blogEntry.author}
         content={blogEntry.content}
-        renderContent={content => BlogEntryContent(content, true)}
+        renderContent={content => BlogEntryContent(content, false)}
       />
-    ))}
-  </div>
-)
+    </div>
+  )
+}
 
-BlogEntriesContainer.propTypes = {
+BlogPage.propTypes = {
+  match: PropTypes.shape.isRequired,
   blogEntries: PropTypes.array.isRequired
 }
 
@@ -34,4 +36,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   null
-)(BlogEntriesContainer)
+)(BlogPage)

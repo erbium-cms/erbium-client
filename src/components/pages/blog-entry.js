@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import { Container, Header } from 'semantic-ui-react'
 
@@ -12,9 +13,18 @@ const BlogEntryAuthorStyle = {
   float: 'right'
 }
 
-const BlogEntry = ({ title, modified, author, content, renderContent }) => (
+const BlogEntry = ({
+  id,
+  title,
+  modified,
+  author,
+  content,
+  renderContent
+}) => (
   <Container text style={BlogEntryContainerStyle}>
-    <Header as="h2" content={title} />
+    <Link to={'blog-page/' + id}>
+      <Header as="h2" content={title} />
+    </Link>
     <p>
       <small>{modified}</small>
     </p>
@@ -26,6 +36,7 @@ const BlogEntry = ({ title, modified, author, content, renderContent }) => (
 )
 
 BlogEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   modified: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension/logOnly'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import App from './app'
 
@@ -23,7 +24,9 @@ store.dispatch(fetchBlogEntries())
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Route component={App} />
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
