@@ -11,11 +11,8 @@ const BlogEntriesContainer = ({ blogEntries }) => (
       <BlogEntry
         key={index}
         id={index}
-        title={blogEntry.title}
-        modified={blogEntry.modified}
-        author={blogEntry.author}
-        content={blogEntry.content}
-        renderContent={content => BlogEntryContent(content, true)}
+        blogEntry={blogEntry}
+        renderContent={content => <BlogEntryContent content={content} fixed />}
       />
     ))}
   </div>

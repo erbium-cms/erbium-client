@@ -12,11 +12,8 @@ const BlogPage = ({ match, blogEntries }) => {
     <div>
       <BlogEntry
         id={match.params.id}
-        title={blogEntry.title}
-        modified={blogEntry.modified}
-        author={blogEntry.author}
-        content={blogEntry.content}
-        renderContent={content => BlogEntryContent(content, false)}
+        blogEntry={blogEntry}
+        renderContent={content => <BlogEntryContent content={content} />}
       />
     </div>
   )

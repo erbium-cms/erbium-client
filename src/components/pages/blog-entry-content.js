@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import showdown from 'showdown'
 import prettify from 'showdown-prettify' // eslint-disable-line no-unused-vars
@@ -14,7 +15,7 @@ const BlogEntryContentStyle = {
   overflow: 'hidden'
 }
 
-const BlogEntryContent = (content, fixed) => (
+const BlogEntryContent = ({ content, fixed }) => (
   <div
     style={fixed ? BlogEntryContentStyle : {}}
     dangerouslySetInnerHTML={{
@@ -22,5 +23,10 @@ const BlogEntryContent = (content, fixed) => (
     }}
   />
 )
+
+BlogEntryContent.propTypes = {
+  content: PropTypes.string.isRequired,
+  fixed: PropTypes.bool.isRequired
+}
 
 export default BlogEntryContent

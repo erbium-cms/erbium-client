@@ -13,34 +13,33 @@ const BlogEntryAuthorStyle = {
   float: 'right'
 }
 
-const BlogEntry = ({
-  id,
-  title,
-  modified,
-  author,
-  content,
-  renderContent
-}) => (
-  <Container text style={BlogEntryContainerStyle}>
-    <Link to={'blog-page/' + id}>
-      <Header as="h2" content={title} />
-    </Link>
-    <p>
-      <small>{modified}</small>
-    </p>
-    {renderContent(content)}
-    <p style={BlogEntryAuthorStyle}>
-      <small>{author}</small>
-    </p>
-  </Container>
-)
+const BlogEntry = ({ id, blogEntry, renderContent }) => {
+  const { title, modified, content, author } = blogEntry
+
+  return (
+    <Container text style={BlogEntryContainerStyle}>
+      <Link to={'blog-page/' + id}>
+        <Header as="h2" content={title} />
+      </Link>
+      <p>
+        <small>{modified}</small>
+      </p>
+      {renderContent(content)}
+      <p style={BlogEntryAuthorStyle}>
+        <small>{author}</small>
+      </p>
+    </Container>
+  )
+}
 
 BlogEntry.propTypes = {
   id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  modified: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  blogEntry: PropTypes.shape({
+    title: PropTypes.string,
+    modified: PropTypes.string,
+    author: PropTypes.string,
+    content: PropTypes.string
+  }).isRequired,
   renderContent: PropTypes.func.isRequired
 }
 
