@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension/logOnly'
+import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import App from './app'
