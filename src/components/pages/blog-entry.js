@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 import { Container, Header } from 'semantic-ui-react'
 
+import { CustomPropTypes } from '../custom-prop-types'
+
 const BlogEntryContainerStyle = {
   padding: '1em 0em'
 }
@@ -13,8 +15,8 @@ const BlogEntryAuthorStyle = {
   float: 'right'
 }
 
-const BlogEntry = ({ id, blogEntry, renderContent }) => {
-  const { title, modified, content, author } = blogEntry
+const BlogEntry = ({ blogEntry, renderContent }) => {
+  const { id, title, modified, content, author } = blogEntry
 
   return (
     <Container text style={BlogEntryContainerStyle}>
@@ -28,18 +30,13 @@ const BlogEntry = ({ id, blogEntry, renderContent }) => {
       <p style={BlogEntryAuthorStyle}>
         <small>{author}</small>
       </p>
+      <Link to={'/blog-edit-page/' + id}>Edit</Link>
     </Container>
   )
 }
 
 BlogEntry.propTypes = {
-  id: PropTypes.number.isRequired,
-  blogEntry: PropTypes.shape({
-    title: PropTypes.string,
-    modified: PropTypes.string,
-    author: PropTypes.string,
-    content: PropTypes.string
-  }).isRequired,
+  blogEntry: CustomPropTypes.blogEntry.isRequired,
   renderContent: PropTypes.func.isRequired
 }
 

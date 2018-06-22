@@ -1,11 +1,13 @@
 [
   {
+    "id": "33b8a4f9-8728-4a79-8711-25d1f488e966",
     "title": "Awesome Blog Article",
     "author": "Incredible Author",
     "modified": "29/05/2018",
     "content": "content.md"
   },
   {
+    "id": "c429561b-0d90-4c48-940f-7d9e96f6bf4c",
     "title": "Not so Awesome Article",
     "author": "N00b Author",
     "modified": "12/05/2018",

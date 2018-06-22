@@ -7,10 +7,9 @@ import BlogEntryContent from './blog-entry-content'
 
 const BlogEntriesContainer = ({ blogEntries }) => (
   <div>
-    {blogEntries.map((blogEntry, index) => (
+    {blogEntries.map(blogEntry => (
       <BlogEntry
-        key={index}
-        id={index}
+        key={blogEntry.id}
         blogEntry={blogEntry}
         renderContent={content => <BlogEntryContent content={content} fixed />}
       />

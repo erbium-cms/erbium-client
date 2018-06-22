@@ -26,7 +26,7 @@ const BlogEntryContent = ({ content, fixed }) => (
 
 BlogEntryContent.propTypes = {
   content: PropTypes.string.isRequired,
-  fixed: PropTypes.bool.isRequired
+  fixed: PropTypes.bool
 }
 
 export default BlogEntryContent

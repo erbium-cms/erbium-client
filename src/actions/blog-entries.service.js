@@ -1,4 +1,4 @@
-export function getBlogEntries () {
+export const getBlogEntries = () => {
   return new Promise((resolve, reject) => {
     window
       .fetch('./data/blog-entries.json')
@@ -24,6 +24,7 @@ export function getBlogEntries () {
               .fetch('/data/' + item.content)
               .then(response => response.text())
               .then(c => ({
+                id: item.id,
                 title: item.title,
                 author: item.author,
                 modified: item.modified,
@@ -39,3 +40,10 @@ export function getBlogEntries () {
       })
   })
 }
+
+export const update = blogEntry =>
+  new Promise((resolve, reject) => {
+    console.log('Blog entry updated.')
+    console.log(blogEntry)
+    resolve({ success: true })
+  })

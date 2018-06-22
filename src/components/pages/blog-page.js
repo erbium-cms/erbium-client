@@ -2,16 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { CustomPropTypes } from '../custom-prop-types'
 import BlogEntry from './blog-entry'
 import BlogEntryContent from './blog-entry-content'
 
 const BlogPage = ({ match, blogEntries }) => {
-  const blogEntry = blogEntries[match.params.id]
+  const { id } = match.params
+  const blogEntry = blogEntries.find(item => item.id === id)
 
   return (
     <div>
       <BlogEntry
-        id={match.params.id}
         blogEntry={blogEntry}
         renderContent={content => <BlogEntryContent content={content} />}
       />
@@ -20,7 +21,7 @@ const BlogPage = ({ match, blogEntries }) => {
 }
 
 BlogPage.propTypes = {
-  match: PropTypes.shape.isRequired,
+  match: CustomPropTypes.matchParamsId.isRequired,
   blogEntries: PropTypes.array.isRequired
 }
 
