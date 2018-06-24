@@ -1,5 +1,12 @@
 [
   {
+    "id": "44c7d330-3b1a-46bd-bfbc-0e2c91df3b11",
+    "title": "Awesome Article with Images",
+    "author": "Mr. Image",
+    "modified": "23/06/2018",
+    "content": "img-content.md"
+  },
+  {
     "id": "33b8a4f9-8728-4a79-8711-25d1f488e966",
     "title": "Awesome Blog Article",
     "author": "Incredible Author",

@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 
 import showdown from 'showdown'
 import prettify from 'showdown-prettify' // eslint-disable-line no-unused-vars
+import { createExtension } from '../../markdown/showdown-image-handling' // eslint-disable-line no-unused-vars
 
+createExtension(showdown)
 const converter = new showdown.Converter({
   headerLevelStart: 3,
-  extensions: ['prettify']
+  extensions: ['prettify', 'image-handling']
 })
 converter.setFlavor('github')
 
